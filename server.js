@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 // routes
 const api = require('./routes/apiroutes');
-const html = require('./routes/htmlroutes')
+const html = require('./routes/htmlroutes');
 
 // middleware
 app.use(express.json());
