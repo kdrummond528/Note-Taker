@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fs = require("fs");
 
 // var for express
 const app = express();
@@ -16,6 +17,8 @@ const html = require('./routes/htmlroutes');
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/', html)
 
 app.listen(PORT, () => {
     console.log("Listening on PORT", PORT)

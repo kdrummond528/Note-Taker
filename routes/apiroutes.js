@@ -1,9 +1,9 @@
-const notes = require('express').Router()
+const notes = require('express').Router();
 const uuid = require('uuid');
 const fs = require("fs");
 
 // get
-notes.get('/', (req, res) => {
+notes.get('/notes', (req, res) => {
 
 })
 
