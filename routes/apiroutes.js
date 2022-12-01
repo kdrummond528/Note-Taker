@@ -3,7 +3,7 @@ const app = require('express').Router();
 // const fs = require("fs");
 const saveData = require('../db/saveData');
 
-// get
+// get notes
 app.get('/notes', (req, res) => {
     saveData
         .retrieveNotes()
@@ -11,7 +11,7 @@ app.get('/notes', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
-// post
+// post notes
 app.post('/', (req, res) => {
     saveData
         .addNote(req.body)
@@ -19,10 +19,13 @@ app.post('/', (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
-// delete
+// delete notes
 app.delete('/', (req, res) => {
-
-})
+    saveData
+        .deleteNote(req.params.id)
+        .then(() => res.json({ ok: true }))
+        .catch(err => res.status(500).json(err));
+});
 
 // export 
 module.exports = app;
