@@ -9,17 +9,23 @@ app.get('/notes', (req, res) => {
             throw err;
         }
         res.send(results)
-    });
+    })
+});
 
-    // post notes
-    app.post('/', (req, res) => {
+// post notes
+app.post('/', (req, res) => {
+    const notes = JSON.parse(fs.readFileSync("./db/db.json"));
+    const addNotes = req.body;
+    addNotes.id = uuid.v4();
+    notes.push(addNotes);
+    fs.writeFileSync("./db/db.json", JSON.stringify(notes))
+    res.json(notes);
+});
 
-    });
+// delete notes
+app.delete('/', (req, res) => {
 
-    // delete notes
-    app.delete('/', (req, res) => {
+});
 
-    });
-
-    // export 
-    module.exports = app;
+// export 
+module.exports = app;
