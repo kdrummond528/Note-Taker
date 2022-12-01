@@ -1,25 +1,22 @@
 const app = require('express').Router();
-const uuid = require('uuid');
-const fs = require("fs");
+// const uuid = require('uuid');
+// const fs = require("fs");
+const saveData = require('../db/saveData');
 
 // get
 app.get('/notes', (req, res) => {
-    fs.readFile('./db/db.json', (err, results) => {
-        if (err) {
-            throw err;
-        }
-        res.send(results)
-    })
 
-    // post
-    app.post('/', (req, res) => {
+})
 
-    })
+// post
+app.post('/', (req, res) => {
 
-    // delete
-    app.delete('/', (req, res) => {
+})
 
-    })
+// delete
+app.delete('/', (req, res) => {
 
-    // export 
-    module.exports = app;
+})
+
+// export 
+module.exports = app;
