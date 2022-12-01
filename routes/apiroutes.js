@@ -1,9 +1,10 @@
-const notes = require('express').Router();
+const app = require('express').Router();
+// const notes = require('express').Router();
 const uuid = require('uuid');
 const fs = require("fs");
 
 // get
-router.get('/notes', (req, res) => {
+app.get('/notes', (req, res) => {
     saveData
         .retrieveNotes()
         .then(notes => res.json(notes))
@@ -11,7 +12,7 @@ router.get('/notes', (req, res) => {
 })
 
 // post
-router.post('/', (req, res) => {
+app.post('/', (req, res) => {
     saveData
         .addNote(req.body)
         .then((note) => res.json(note))
@@ -19,9 +20,9 @@ router.post('/', (req, res) => {
 })
 
 // delete
-router.delete('/', (req, res) => {
+app.delete('/', (req, res) => {
 
 })
 
 // export 
-module.exports = router;
+module.exports = app;
