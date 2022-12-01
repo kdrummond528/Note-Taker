@@ -4,18 +4,22 @@ const fs = require("fs");
 
 // get notes
 app.get('/notes', (req, res) => {
+    fs.readFile('./db/db.json', (err, results) => {
+        if (err) {
+            throw err;
+        }
+        res.send(results)
+    });
 
-});
+    // post notes
+    app.post('/', (req, res) => {
 
-// post notes
-app.post('/', (req, res) => {
+    });
 
-});
+    // delete notes
+    app.delete('/', (req, res) => {
 
-// delete notes
-app.delete('/', (req, res) => {
+    });
 
-});
-
-// export 
-module.exports = app;
+    // export 
+    module.exports = app;
