@@ -5,13 +5,19 @@ const saveData = require('../db/saveData');
 
 // get
 app.get('/notes', (req, res) => {
-
-})
+    saveData
+        .retrieveNotes()
+        .then(notes => res.json(notes))
+        .catch(err => res.status(500).json(err));
+});
 
 // post
 app.post('/', (req, res) => {
-
-})
+    saveData
+        .addNote(req.body)
+        .then((note) => res.json(note))
+        .catch(err => res.status(500).json(err));
+});
 
 // delete
 app.delete('/', (req, res) => {
