@@ -3,10 +3,21 @@
 ## Description
 An application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
 
+## Table of Contents
+- [Screenshots](#screenshots)
+- [Links](#links)
+- [Contact](#contact)
+
+## Screenshots
+
+![screenshot](./public/assets/homess.png)
+![screenshot](./public/assets/notess.png)
+
 [Back to top](#note-taker)
 
 ## Links
 - 
+
 [Back to top](#note-taker)
 
 ## Contact
