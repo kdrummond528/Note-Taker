@@ -10,7 +10,7 @@ app.get('/notes', (req, res) => {
         }
         res.send(results)
     })
-};
+});
 
 // post notes
 app.post('/', (req, res) => {
