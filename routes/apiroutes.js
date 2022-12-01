@@ -4,22 +4,28 @@ const fs = require("fs");
 
 // get notes
 app.get('/notes', (req, res) => {
-    fs.readFile('./db/db.json', (err, results) => {
-        if (err) {
-            throw err;
-        }
-        res.send(results)
-    })
+    readFromFile('./db/note.json').then((data) => res.json(JSON.parse(data)));
+
 });
 
 // post notes
 app.post('/', (req, res) => {
-    const notes = JSON.parse(fs.readFileSync("./db/db.json"));
-    const addNotes = req.body;
-    addNotes.id = uuid.v4();
-    notes.push(addNotes);
-    fs.writeFileSync("./db/db.json", JSON.stringify(notes))
-    res.json(notes);
+    console.log(req.body);
+
+    const { title, text } = req.body;
+
+    if (req.body) {
+        const newNote = {
+            title,
+            text,
+            // post_id: uuidv4(),
+        };
+
+        readAndAppend(newNote, './db/note.json');
+        res.json(`Note added successfully.`);
+    } else {
+        res.error('Error in adding note.');
+    }
 });
 
 // delete notes
